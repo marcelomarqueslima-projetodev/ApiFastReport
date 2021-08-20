@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiFastReport.Data;
+using FastReport.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -50,6 +51,8 @@ namespace ApiFastReport
                 });
             });
 
+            FastReport.Utils.RegisteredObjects.AddConnection(typeof(MySqlDataConnection));
+
             var serverVersion = new MySqlServerVersion(new Version(8,0,26));
             var connectionString = Configuration.GetConnectionString("MyDb");
 
@@ -80,6 +83,10 @@ namespace ApiFastReport
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseFastReport();
+
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

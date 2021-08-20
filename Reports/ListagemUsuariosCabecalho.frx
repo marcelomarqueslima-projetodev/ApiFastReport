@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/19/2021 09:23:12" ReportInfo.Modified="08/19/2021 22:13:43" ReportInfo.CreatorVersion="2021.3.21.0">
+  <Dictionary>
+    <MySqlDataConnection Name="Connection" ConnectionString="rijcmlqomabmqtwD7y3BaVO988Xrns8n0+Fpps4V7SdlS+EOKSPNNCFLqnGO4jXhdKdW+L5fQRkqxDMnr3CSBgDaP0ipHMUl62gwjl8cBlwaWx0W/s=">
+      <TableDataSource Name="users" DataType="System.Int32" Enabled="true" TableName="users">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Nome" DataType="System.String"/>
+        <Column Name="Email" DataType="System.String"/>
+        <Column Name="CreateAt" DataType="System.DateTime"/>
+        <Column Name="UpdatedAt" DataType="System.DateTime"/>
+      </TableDataSource>
+      <TableDataSource Name="empresas" DataType="System.Int32" Enabled="true" TableName="empresas">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Nome" DataType="System.String"/>
+        <Column Name="Email" DataType="System.String"/>
+        <Column Name="Foto" DataType="System.String"/>
+        <Column Name="CreateAt" DataType="System.DateTime"/>
+        <Column Name="UpdatedAt" DataType="System.DateTime"/>
+      </TableDataSource>
+    </MySqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="122.85" Border.Lines="All">
+      <TextObject Name="Text11" Left="245.7" Width="472.5" Height="35.63" Text="[empresas.Nome]" VertAlign="Center" Font="Arial, 18pt, style=Bold"/>
+      <TextObject Name="Text12" Left="245.7" Top="37.8" Width="472.5" Height="18.9" Text="[empresas.Email]" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <PictureObject Name="Picture1" Left="18.9" Top="9.45" Width="189" Height="103.95" DataColumn="empresas.Foto"/>
+      <TextObject Name="Text13" Left="245.7" Top="94.5" Width="283.5" Height="28.35" Text="Listagem de Usuário" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text14" Left="557.55" Top="103.95" Width="160.65" Height="18.9" Text="[Date]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="126.85" Width="718.2" Height="37.8" Border.Lines="All" Fill.Color="DarkGray">
+      <TextObject Name="Text3" Left="9.45" Top="18.9" Width="94.5" Height="18.9" Border.Color="Transparent" Text="Id" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text5" Left="113.4" Top="18.9" Width="94.5" Height="18.9" Border.Color="Transparent" Text="Nome" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text7" Left="349.65" Top="18.9" Width="94.5" Height="18.9" Border.Color="Transparent" Text="Email" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text10" Left="576.45" Top="18.9" Width="141.75" Height="18.9" Border.Lines="Bottom" Border.Color="Transparent" Text="Data Cadastro" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="168.65" Width="718.2" Height="37.8" DataSource="users">
+      <TextObject Name="Text2" Left="9.45" Top="9.45" Width="94.5" Height="18.9" Text="[users.Id]" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text4" Left="113.4" Top="9.45" Width="226.8" Height="18.9" Border.Color="Transparent" Text="[users.Nome]" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text6" Left="349.65" Top="9.45" Width="198.45" Height="18.9" Border.Color="Transparent" Text="[users.Email]" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text9" Left="576.45" Top="9.45" Width="94.5" Height="18.9" Border.Lines="Bottom" Border.Color="Transparent" Text="[users.CreateAt]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 12pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="210.45" Width="718.2" Height="28.35" Border.Lines="Top">
+      <TextObject Name="Text8" Left="9.45" Top="3" Width="321.3" Height="18.9" Border.Color="Transparent" Text="Página: [Page] / [TotalPages#]" VertAlign="Center" Font="Arial, 10pt, style=Italic"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
