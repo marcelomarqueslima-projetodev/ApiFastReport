@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="08/19/2021 09:23:12" ReportInfo.Modified="08/19/2021 23:55:07" ReportInfo.CreatorVersion="2021.3.21.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/19/2021 09:23:12" ReportInfo.Modified="08/23/2021 14:49:43" ReportInfo.CreatorVersion="2021.3.21.0">
   <Dictionary>
-    <MySqlDataConnection Name="Connection" ConnectionString="rijcmlqomabmqtwD7y3BaVO988Xrns8n0+Fpps4V7SdlS+EOKSPNNCFLqnGO4jXhdKdW+L5fQRkqxDMnr3CSBgDaP0ipM8qqd20/g8WJaA0q4hN8Yo=">
+    <MySqlDataConnection Name="Connection" ConnectionString="rijcmlqomabmqtwD7y3BaVO988Xrns8n0+Fpps4V7SdlS+EOKSPNNCFLqnGO4jXhdKdW+L5fQRkqxDMnr3CSBgDaP0ipCWK/Xv7jwU6Kk9g5wXBsc4=">
       <TableDataSource Name="empresas" DataType="System.Int32" Enabled="true" TableName="empresas">
         <Column Name="Id" DataType="System.Int32"/>
         <Column Name="Nome" DataType="System.String"/>
@@ -26,17 +26,18 @@
       <PictureObject Name="Picture1" Left="18.9" Top="9.45" Width="189" Height="103.95" DataColumn="empresas.Foto"/>
       <TextObject Name="Text13" Left="245.7" Top="94.5" Width="472.5" Height="28.35" Text="Ficha do Cliente: [clientes.Nome]" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
     </ReportTitleBand>
-    <DataBand Name="Data1" Top="126.85" Width="718.2" Height="160.65" DataSource="clientes">
-      <TextObject Name="Text2" Left="9.45" Top="47.25" Width="47.25" Height="18.9" Text="[clientes.Id]" VertAlign="Center" Font="Arial, 12pt"/>
-      <TextObject Name="Text4" Top="113.4" Width="198.45" Height="18.9" Border.Color="Transparent" Text="[clientes.Nome]" VertAlign="Center" Font="Arial, 12pt"/>
-      <TextObject Name="Text6" Left="331.35" Top="113.4" Width="292.95" Height="18.9" Border.Color="Transparent" Text="[clientes.Email]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" VertAlign="Center" Font="Arial, 12pt"/>
-      <TextObject Name="Text16" Left="567" Top="47.25" Width="160.65" Height="18.9" Border.Lines="Bottom" Border.Color="Transparent" Text="[clientes.CreateAt]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 12pt"/>
-      <TextObject Name="Text15" Left="567" Top="18.9" Width="160.65" Height="18.9" Border.Lines="Bottom" Border.Color="Transparent" Text="Data Cadastro" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
-      <TextObject Name="Text3" Top="18.9" Width="47.25" Height="18.9" Border.Color="Transparent" Text="#Id" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
-      <TextObject Name="Text5" Top="85.05" Width="113.4" Height="18.9" Border.Color="Transparent" Text="Nome" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
-      <TextObject Name="Text7" Left="331.35" Top="85.05" Width="94.5" Height="18.9" Border.Color="Transparent" Text="E-mail" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+    <DataBand Name="Data1" Top="126.85" Width="718.2" Height="181.25" DataSource="clientes">
+      <TextObject Name="Text2" Left="56.6" Top="18.35" Width="47.25" Height="18.9" Text="[clientes.Id]" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text4" Left="103.95" Top="75.6" Width="198.45" Height="18.9" Border.Color="Transparent" Text="[clientes.Nome]" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text6" Left="104.55" Top="132.3" Width="292.95" Height="18.9" Border.Color="Transparent" Text="[clientes.Email]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text16" Left="576.45" Top="18.9" Width="160.65" Height="18.9" Border.Lines="Bottom" Border.Color="Transparent" Text="[clientes.CreateAt]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text15" Left="406.35" Top="18.9" Width="160.65" Height="18.9" Border.Lines="Bottom" Border.Color="Transparent" Text="Data Cadastro:" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text3" Top="18.9" Width="47.25" Height="18.9" Border.Color="Transparent" Text="#Id:" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text5" Top="75.6" Width="94.5" Height="18.9" Border.Color="Transparent" Text="Nome:" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text7" Left="0.6" Top="132.3" Width="94.5" Height="18.9" Border.Color="Transparent" Text="E-mail:" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <BarcodeObject Name="Barcode1" Left="463.05" Top="56.7" Width="180" Height="180" Text="Nome: [clientes.Nome]&#13;&#10;E-mail: [clientes.Email]&#13;&#10;Data de Cadastro: [clientes.CreateAt]" ShowText="false" AllowExpressions="true" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="291.5" Width="718.2" Height="28.35" Border.Lines="Top">
+    <PageFooterBand Name="PageFooter1" Top="312.1" Width="718.2" Height="28.35" Border.Lines="Top">
       <TextObject Name="Text8" Left="9.45" Top="3" Width="321.3" Height="18.9" Border.Color="Transparent" Text="Página: [Page] / [TotalPages#]" VertAlign="Center" Font="Arial, 10pt, style=Italic"/>
     </PageFooterBand>
   </ReportPage>
