@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/19/2021 09:23:12" ReportInfo.Modified="08/23/2021 17:15:37" ReportInfo.CreatorVersion="2021.3.21.0">
+  <Dictionary>
+    <MySqlDataConnection Name="Connection" ConnectionString="rijcmlqomabmqtwD7y3BaVO988Xrns8n0+Fpps4V7SdlS+EOKSPNNCFLqnGO4jXhdKdW+L5fQRkqxDMnr3CSBgDaP0ipOvFapaVLUHiWLk0ZJbaRZk=">
+      <TableDataSource Name="empresas" DataType="System.Int32" Enabled="true" TableName="empresas">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Nome" DataType="System.String"/>
+        <Column Name="Email" DataType="System.String"/>
+        <Column Name="Foto" DataType="System.String"/>
+        <Column Name="CreateAt" DataType="System.DateTime"/>
+        <Column Name="UpdatedAt" DataType="System.DateTime"/>
+      </TableDataSource>
+      <TableDataSource Name="produtos" DataType="System.Int32" Enabled="true" TableName="produtos">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Descricao" DataType="System.String"/>
+        <Column Name="Preco" DataType="System.Decimal"/>
+        <Column Name="Ean" DataType="System.String"/>
+        <Column Name="CategoriaId" DataType="System.Int32"/>
+        <Column Name="CreateAt" DataType="System.DateTime"/>
+        <Column Name="UpdatedAt" DataType="System.DateTime"/>
+      </TableDataSource>
+      <TableDataSource Name="categorias" DataType="System.Int32" Enabled="true" TableName="categorias">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Descricao" DataType="System.String"/>
+        <Column Name="CreateAt" DataType="System.DateTime"/>
+        <Column Name="UpdatedAt" DataType="System.DateTime"/>
+      </TableDataSource>
+    </MySqlDataConnection>
+    <Relation Name="categorias_produtos" ParentDataSource="categorias" ChildDataSource="produtos" ParentColumns="Id" ChildColumns="CategoriaId" Enabled="true"/>
+    <Total Name="Total" TotalType="Count" Evaluator="Data1" PrintOn="GroupFooter1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="122.85" Border.Lines="All">
+      <TextObject Name="Text11" Left="245.7" Width="472.5" Height="35.63" Text="[empresas.Nome]" VertAlign="Center" Font="Arial, 18pt, style=Bold"/>
+      <TextObject Name="Text12" Left="245.7" Top="37.8" Width="472.5" Height="18.9" Text="[empresas.Email]" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <PictureObject Name="Picture1" Left="18.9" Top="9.45" Width="189" Height="103.95" DataColumn="empresas.Foto"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="126.85" Width="718.2" Height="37.8">
+      <TextObject Name="Text13" Left="9.45" Top="9.45" Width="699.3" Height="28.35" Text="Listagem de Produto por Categoria" HorzAlign="Center" Font="Arial, 14pt, style=Bold"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="168.65" Width="718.2" Height="85.05" StartNewPage="true" Condition="[produtos.CategoriaId]">
+      <TextObject Name="Text15" Left="9.45" Top="9.45" Width="699.3" Height="37.8" Fill.Color="PapayaWhip" Text="[produtos.CategoriaId] - [produtos.categorias.Descricao]" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text19" Left="37.8" Top="56.7" Width="94.5" Height="18.9" Border.Lines="Bottom" Text="#ID" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text20" Left="141.75" Top="56.7" Width="264.6" Height="18.9" Border.Lines="Bottom" Text="DESCRIÇÃO:" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text21" Left="415.8" Top="56.7" Width="189" Height="18.9" Border.Lines="Bottom" Text="PREÇO:" Font="Arial, 14pt, style=Bold"/>
+      <DataBand Name="Data1" Top="257.7" Width="718.2" Height="47.25" DataSource="produtos">
+        <TextObject Name="Text16" Left="141.75" Top="9.45" Width="264.6" Height="18.9" Text="[produtos.Descricao]" Font="Arial, 14pt"/>
+        <TextObject Name="Text17" Left="415.8" Top="9.45" Width="179.55" Height="18.9" Text="[produtos.Preco]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" WordWrap="false" Font="Arial, 14pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text18" Left="37.8" Top="9.45" Width="94.5" Height="18.9" Text="[produtos.Id]" Font="Arial, 14pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="308.95" Width="718.2" Height="47.25">
+        <ShapeObject Name="Shape1" Left="274.05" Width="434.7" Height="47.25" Fill.Color="CornflowerBlue" GrowToBottom="true"/>
+        <TextObject Name="Text22" Left="311.85" Top="9.45" Width="396.9" Height="28.35" Text="Total de Produto na Categoria: [Total]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="0" Font="Arial, 14pt, style=Bold"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="360.2" Width="718.2" Height="28.35" Border.Lines="Top">
+      <TextObject Name="Text8" Left="9.45" Top="3" Width="321.3" Height="18.9" Border.Color="Transparent" Text="Página: [Page] / [TotalPages#]" VertAlign="Center" Font="Arial, 10pt, style=Italic"/>
+      <TextObject Name="Text14" Left="510.3" Width="198.45" Height="18.9" Text="[Date]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
