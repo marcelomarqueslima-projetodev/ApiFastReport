@@ -75,5 +75,27 @@ namespace ApiFastReport.Controllers
             webReport.Report.RegisterData(empresa, "Empresas");
             return File(HelperFastReport.ExportarPdf(webReport), "application/pdf", $"FichaDeProdutosPorId_{Id.ToString()}.pdf");
         }
+
+        [HttpGet("ProdutoPorCategoria")]
+        public ActionResult GetProdutosPorCategoria()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var webReport = HelperFastReport.WebReport("ListagemProdutosPorCategoria.frx");
+            var produtosList = _context.Produtos.ToList();
+            var categoriaList = _context.Categorias.ToList();
+            var empresaList = _context.Empresas.ToList();
+
+            var produtos = HelperFastReport.GetTable<Produto>(produtosList,"produtos");
+            var categorias = HelperFastReport.GetTable<Categoria>(categoriaList,"categorias");
+            var empresa = HelperFastReport.GetTable<Empresa>(empresaList,"Empresas");
+            webReport.Report.RegisterData(produtos, "produtos");
+            webReport.Report.RegisterData(categorias, "categorias");
+            webReport.Report.RegisterData(empresa, "Empresas");
+            return File(HelperFastReport.ExportarPdf(webReport), "application/pdf", "ListagemProdutosPorCategoria.pdf");
+        }
     }
 }
